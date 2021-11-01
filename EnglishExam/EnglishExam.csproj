@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="5.1.2" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.37" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.115" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="wwwroot\Photo\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\bootstarp-SignIn\Signin Template _Bootstrap_files\bootstrap-solid.svg" />
+    <None Include="wwwroot\assets\bootstarp-SignIn\Signin Template _Bootstrap_files\bootstrap.min.css" />
+    <None Include="wwwroot\assets\bootstarp-SignIn\Signin Template _Bootstrap_files\signin.css" />
+    <None Include="wwwroot\assets\bootstarp-SignIn\Signin Template · Bootstrap.html" />
+    <None Include="wwwroot\Photo\KonusarakOgren.png" />
+  </ItemGroup>
+
+</Project>

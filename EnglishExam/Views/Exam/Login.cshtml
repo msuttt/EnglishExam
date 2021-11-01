@@ -1,0 +1,53 @@
+﻿
+@using EnglishExam.CustomModels;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://getbootstrap.com/docs/4.3/examples/sign-in/ -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Signin Template · Bootstrap</title>
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="C:\Users\Mesut\.nuget\packages\bootstrap\5.1.2\contentFiles\any\any\wwwroot\css\bootstrap.css" rel="stylesheet" />
+    <!--<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">-->
+    <!-- Bootstrap core CSS  <link href="@Url.Content("~/assets/bootstarp-SignIn/Signin Template _Bootstrap_files/bootstrap.min.css")" rel="stylesheet">-->
+    <!--integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"-->
+    <!-- Custom styles for this template   <link href="@Url.Content("~/assets/bootstarp-SignIn/Signin Template _Bootstrap_files/signin.css")" rel="stylesheet"> -->
+
+    <link href="@Url.Content("~/assets/bootstarp-SignIn/Signin Template _Bootstrap_files/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/assets/bootstarp-SignIn/Signin Template _Bootstrap_files/signin.css")" rel="stylesheet">
+
+
+
+</head>
+<body class="text-center">
+    <form class="form-signin" method="post">
+        <img class="mb-4" src="~/Photo/KonusarakOgren.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="inputEmail" class="sr-only">Kullanıcı Adı Giriniz:</label>
+        <input type="text" id="inputEmail" class="form-control" name="kullaniciadi" placeholder="Username" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="sifre" class="form-control" placeholder="Password" required="">
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">© 2021 -  </p>
+        <p>Hata Mesajı = @TempData["NoUser"]</p>
+    </form>
+
+</body>
+
+
+
+</html>
