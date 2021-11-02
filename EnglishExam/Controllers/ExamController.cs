@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data;
-using EnglishExam.CustomModels;
 using EnglishExam.Services;
 using EnglishExam.Models.Entities;
 using EnglishExam.Helpers;
@@ -67,28 +66,27 @@ namespace EnglishExam.Controllers
            
         }
 
-        [HttpPost]
-        public IActionResult Index(int id)
-        {
-            var exam=_examService.GetExamById(id);
-            var question = _examService.GetQuestionByExamId(id);
+        //[HttpPost]
+        //public IActionResult Index(int id)
+        //{
+        //    //var exam=_examService.GetExamById(id);
+        //    //var question = _examService.GetQuestionByExamId(id);
 
-            _examService.QuestionDelete(question);
-            _examService.ExamDelete(exam);
+        //    //_examService.QuestionDelete(question);
+        //    //_examService.ExamDelete(exam);
 
-            return RedirectToAction("Index");
+        //    return View();
 
-        }
+        //}
 
-        public IActionResult Delete()
-        {
+        //public IActionResult Delete()
+        //{
           
+        //    return View();
 
-            return RedirectToAction("Index");
+        //}
 
-        }
-
-        [HttpPost]
+        //[HttpPost]
         public IActionResult Delete(int id)
         {
             var exam = _examService.GetExamById(id);
@@ -129,6 +127,7 @@ namespace EnglishExam.Controllers
             return View(model);
         }
 
+       
         public IActionResult SolveExam(string title)
         {
             var exam = _examService.GetExamByTitle(title);
@@ -137,12 +136,31 @@ namespace EnglishExam.Controllers
             List<Exam> exams = new List<Exam>();
             exams.Add(exam);
 
-            SolveViewModel solveViewModel = new SolveViewModel();
+            SolveandCheckViewModel solveViewModel = new SolveandCheckViewModel();
             solveViewModel.Exams = exams;
             solveViewModel.Questions = question;
 
             return View(solveViewModel);
         }
+
+        //[HttpPost]
+        //public IActionResult SolveExam()
+        //{
+
+
+        //    //var exam = _examService.GetExamByTitle(title);
+        //    //var question = _examService.GetQuestionByExamId(exam.Id);
+
+        //    //List<Exam> exams = new List<Exam>();
+        //    //exams.Add(exam);
+
+        //    //SolveandCheckViewModel checkViewModel = new SolveandCheckViewModel();
+        //    //checkViewModel.Exams = exams;
+        //    //checkViewModel.Questions = question;
+        //    //checkViewModel.UserAnswers = answers;
+
+        //    return RedirectToAction("SolveExam");
+        //}
 
 
     }

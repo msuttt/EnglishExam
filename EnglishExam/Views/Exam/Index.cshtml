@@ -10,26 +10,34 @@
 {
 
 
-    <form method="post" action="/Exam/Index">
+<form method="post" action="/Exam/Index">
+    <div class="col-12 ">    
+        <tr>
+            <td><strong>Başlık</strong></td>          
+            <td><strong style="margin-left:300px;">Tarih</strong></td>
+        </tr>
+        </div>
+        <hr class="my-6">
         @foreach (var exam in Model.Exams)
         {
             <div>
-                <tr>
-                    <td>Başlık=<strong>@exam.Title</strong> </td>
-                    <td>Tarih=<strong>@exam.Date.ToString()</strong></td>
+                <tr>                   
+                    <td><strong>@exam.Title----------</strong> </td>
+                    <td><strong>@exam.Date.ToString()</strong></td>
 
                     @{ var db = new ContextDatabase();
                         var examId = db.Exam.SingleOrDefault(x => x.Title == exam.Title).Id;
 
                     }
 
-                    <td>@Html.ActionLink("Sil", "Index", new { id = examId })</td>
-                    <td>@Html.ActionLink("Title", "SolveExam", new { title = exam.Title })</td>
+
+                    <td>@Html.ActionLink("Sil", "Delete", new { id = examId })</td>
+                    <td>@Html.ActionLink("Sınavı Çöz", "SolveExam", new { title = exam.Title })</td>
 
                 </tr>
             </div>
         }
-    </form>
+</form>
 }
 
 else

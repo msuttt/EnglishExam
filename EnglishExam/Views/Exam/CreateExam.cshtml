@@ -21,14 +21,14 @@
     <h1 class="h2">Sınav Oluştur</h1>
 </div>
 
-<div class="row g-5">
+<div class="col-12">
     <div class="col-md-12">
         <form method="post" action="/Exam/CreateExam">
             <input type="hidden" name="Exam.Id" />
             <input type="hidden" name="Exam.Title" value="@Model.Exam.Title" />
             <input type="hidden" name="Exam.Content" value="@Model.Exam.Content" />
-            <div class="form-horizantal">
-                <div class="py-5 ">
+            <div class="col-12">
+                <div class="col-12 ">
                     <h2>@Model.Exam.Title</h2>
                     <div class="lead">
                         @Html.Raw(Model.Exam.Content)
@@ -36,54 +36,56 @@
                     <hr class="my-6">
                     @for (int i = 0; i < 4; i++)
                     {
+
                         <input type="hidden" name="Questions[@i].Id" value="0" />
                         <input type="hidden" name="Questions[@i].OrderNo" value="@(i+1)" />
-                        <div class="mb-3 row">
+                        <div class="mb-2 row">
                             <label for="QuestionText_@i" class="col-sm-2 col-form-label">@(i+1). Soru :</label>
-                            <div class="col-sm-10">
+                            <div>
                                 <textarea id="QuestionContent_@i" name="Questions[@i].QuestionContent" class="form-control ckeditorshow"></textarea>
                             </div>
                         </div>
-                        <div class="mb-3 row">
-                            <label for="A_@i" class="col-sm-2 col-form-label">Cevap A:</label>
-                            <div class="col-sm-10">
-                                <textarea id="A_@i" name="Questions[@i].A" class="form-control ckeditorshow"></textarea>
+                        <div class="col-8">
+                            <div class="mb-2 row">
+                                <label for="A_@i">Cevap A:</label>
+                                
+                                    <textarea id="A_@i" name="Questions[@i].A" class="form-control ckeditorshow"></textarea>
+                                
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="B_@i" class="col-sm-2 col-form-label">Cevap B:</label>
-                            <div class="col-sm-10">
-                                <textarea id="B_@i" name="Questions[@i].B" class="form-control ckeditorshow"></textarea>
+                            <div class="mb-2 row">
+                                <label for="B_@i">Cevap B:</label>
+                                
+                                    <textarea id="B_@i" name="Questions[@i].B" class="form-control ckeditorshow"></textarea>
+                                
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="C_@i" class="col-sm-2 col-form-label">Cevap C:</label>
-                            <div class="col-sm-10">
-                                <textarea id="C_@i" name="Questions[@i].C" class="form-control ckeditorshow"></textarea>
+                            <div class="mb-2 row">
+                                <label for="C_@i">Cevap C:</label>
+                                
+                                    <textarea id="C_@i" name="Questions[@i].C" class="form-control ckeditorshow"></textarea>
+                                
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="D_@i" class="col-sm-2 col-form-label">Cevap D:</label>
-                            <div class="col-sm-10">
-                                <textarea id="D_@i" name="Questions[@i].D" class="form-control ckeditorshow"></textarea>
+                            <div class="mb-2 row">
+                                <label for="D_@i">Cevap D:</label>
+                                
+                                    <textarea id="D_@i" name="Questions[@i].D" class="form-control ckeditorshow"></textarea>
+                               
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="TrueAnswer_@i" class="col-sm-2 col-form-label">Doğru Şık:</label>
-                            <div class="col-sm-10">
-                                <select class="form-select" id="TrueAnswer_@i" name="Questions[@i].TrueAnswer" aria-label="Doğru Şık Seçiniz">
-                                    <option selected>Doğru Şık Seçiniz</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                </select>
+                            <div class="mb-3 row">
+                                <label for="TrueAnswer_@i" class="col-sm-2 col-form-label">Doğru Şık:</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="TrueAnswer_@i" name="Questions[@i].TrueAnswer" aria-label="Doğru Şık Seçiniz">
+                                        <option selected>Doğru Şık Seçiniz</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                </div>
                             </div>
+                            <hr class="my-2">
                         </div>
-                        <hr class="my-2">
-
                     }
-                    <div class="mb-3 row">
+                    <div class="mb-2 row">
                         <input id="Save" class="w-100 btn btn-primary btn-lg" type="submit" value="Soruları Kaydet" />
                     </div>
                     <hr class="my-6">

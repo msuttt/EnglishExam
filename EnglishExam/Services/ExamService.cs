@@ -55,18 +55,23 @@ namespace EnglishExam.Services
 
         public List<Question> QuestionDelete(List<Question> question)
         {
-            var questionEntry = _db.Entry(question);
-            questionEntry.State = (Microsoft.EntityFrameworkCore.EntityState)EntityState.Deleted;
-            _db.SaveChanges();
+
+            foreach(var item in question)
+            {
+                _db.Question.Remove(item);
+                _db.SaveChanges();
+
+            }
+
+
             return question;
         }
 
         public Exam ExamDelete(Exam exam)
         {
-            
-            var examEntry=_db.Entry(exam);
-            examEntry.State= (Microsoft.EntityFrameworkCore.EntityState)EntityState.Deleted;
+            _db.Exam.Remove(exam);
             _db.SaveChanges();
+          
             return exam;
         }
     }

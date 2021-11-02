@@ -86,11 +86,11 @@ namespace EnglishExam.Helpers
             doc.LoadHtml(getHtml);
             if (to.Contains("story"))
             {
-                return doc.DocumentNode.SelectSingleNode("//*[@id='main-content']/article/div[2]/div/div[1]/div[1]/div[1]/div/p[1]").InnerHtml;
+                return doc.DocumentNode.SelectSingleNode("//*[@id='main-content']/article/div[2]/div/div[1]/div[1]/div[1]/div/p[1]").InnerText;
             }
             else
             {
-                return doc.DocumentNode.SelectSingleNode("//*[@id='main-content']/article/div[2]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").InnerHtml;
+                return doc.DocumentNode.SelectSingleNode("//*[@id='main-content']/article/div[2]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").InnerText;
 
             } 
         }

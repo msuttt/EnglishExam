@@ -1,6 +1,6 @@
 ﻿@using EnglishExam.ViewModels;
 @using EnglishExam.Models;
-@model SolveViewModel;
+@model SolveandCheckViewModel;
 @{
     ViewData["Title"] = "SolveExam";
     Layout = "~/Views/Shared/LayoutPage.cshtml";
@@ -27,7 +27,7 @@
 <div class="row g-5">
     <div class="col-md-12">
         <form method="post" action="/Exam/SolveExam">
-          
+
 
             <div class="form-horizantal">
                 <div class="py-5 ">
@@ -38,34 +38,47 @@
                             @ex.Content
                         </div>
                     }
-                
+                   
                     @foreach (var item in Model.Questions)
-                    {
-                <div class="col-6" style="margin-top:10px;">
-                    <tr><td><strong>Soru-)</strong>@item.QuestionContent</td></tr>
-                    <tr>
+                    { 
+                        <div class="col-12">
+                            <div class="col-12" style="margin-top:10px;">
+                                <tr><td><strong>@item.OrderNo-)</strong>@item.QuestionContent</td></tr><br />
+                            </div>
+
+                            <div class="col-12" style="margin-top:10px;">
+
+                            </div>
 
 
-                        <select>
-                            <option>
-                        <td><strong>A-)</strong> @item.A</td></option>
-                        <option>
-                        <td><strong>B-)</strong>@item.B</td></option>
-                        <option>
-                        <td><strong>C-)</strong>@item.C</td>
-                        </option>
+                            <select name="answers">
+                                <option value="A">A-) @item.A</option>
+                                <option value="B">B-) @item.B</option>
+                                <option value="C">C-) @item.C</option>
+                                <option value="D">D-) @item.D</option>
+                            </select>
 
-                        <option>
-                        <td><strong>D-)</strong>@item.D</td></option>
 
-                        </select>
+                        </div>
+                    }
 
-                    </tr>
                 </div>
-                            }
-                        
-                    </div>
             </div>
+
+            @foreach (var item2 in Model.Questions)
+            {
+        <tr>
+            <td>@item2.OrderNo .Soru - Doğru Cevap=@item2.TrueAnswer</td>          
+        </tr>
+            }
+            <button type="submit" class="btn btn-primary tamamla" id="tamamla" onclick="ResultMessage()">Sınavı Tamamla</button>
+
+            @*@foreach (var ex in Model.Exams)
+            {
+                @Html.ActionLink("Sınavı Tamamla", "SolveExam", new { title = ex.Title})
+            }*@
+
+
         </form>
 
     </div>
@@ -132,3 +145,27 @@
 
     </script>
 }
+
+<script>
+    function ResultMessage() {
+        alert("Ajax kodunu çalıştıramadım.Bu yüzden sınavınıza kanaat notu olarak 100 veriyorum:)");
+    }
+
+</script>
+<script>
+    //$(".checkexam").click(function () {
+    //    var questionId = $(this).data("id")
+
+    //    alert(id);
+
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "~/Exam/CheckExam/" + questionId,
+    //        success: function () {
+    //            window.location.replace("/Exam/CheckExam");
+    //        },
+
+    //    });
+    //});
+
+</script>

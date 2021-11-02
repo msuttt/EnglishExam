@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace EnglishExam.ViewModels
 {
-    public class SolveViewModel
+    public class CheckExamViewModel
     {
         public List<Exam> Exams { get; set; }
-
         public List<Question> Questions { get; set; }
+
+        public List<string> UserAnswers { get; set; }
     }
 }

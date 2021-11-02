@@ -11,7 +11,7 @@ namespace EnglishExam.CustomModels
         public string Title { get; set; }
         public string To { get; set; }
         public string Content { get; set; }
-        public int  OrderNo { get; set; }
+        public int OrderNo { get; set; }
         public Exam Exam { get; set; }
     }
 }
